@@ -403,7 +403,6 @@ Begin WebPage wpDEMO
       LockVertical    =   False
       Scope           =   2
       TabIndex        =   87
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   140
       value           =   False
@@ -429,7 +428,6 @@ Begin WebPage wpDEMO
       LockVertical    =   False
       Scope           =   2
       TabIndex        =   88
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   74
       Value           =   False

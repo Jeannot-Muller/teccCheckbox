@@ -112,8 +112,8 @@ Inherits WebSDKUIControl
 
 	#tag Event
 		Sub Opening()
-		  'Self.Style.value("outline") = "none"
-		  'mvalue = True
+		  Self.Style.value("outline") = "none"
+		  mvalue = True
 		  'If InitiallyOff = True Then
 		  'mvalue = False
 		  'End If
@@ -168,9 +168,32 @@ Inherits WebSDKUIControl
 		  // Return an array of CSS URLs for your control
 		  // Here's one way to do this...
 		  
-		  If teccToggleCSS = Nil Then
+		  If teccCheckboxCSS = Nil Then
 		    Var cssStr As String
 		    Var css() As String
+		    
+		    css.Add(".teccCheckbox  {")
+		    css.Add("position: relative;")
+		    css.Add("Left: 15px;")
+		    css.Add("top: -4px;")
+		    css.Add("z-index: 0;")
+		    css.Add("-webkit-appearance: none;")
+		    css.Add("}")
+		    css.Add(".teccCheckbox:before {")
+		    css.Add("width: 15px;")
+		    css.Add("height: 15px;")
+		    css.Add("background-Color: #000;")
+		    css.Add("display: block;")
+		    css.Add("content: '';")
+		    css.Add("float: left;")
+		    css.Add("margin-Right: 5px;")
+		    css.Add("z-index: 5;")
+		    css.Add("position: relative;")
+		    css.Add("}")
+		    
+		    css.Add("Input:checked .teccCheckbox:before {")
+		    css.Add("background-Color: #c72f2f;")
+		    css.Add("}")
 		    '
 		    'css.Add(".toggle {")
 		    'css.Add("margin:0 0 0 2rem;")
@@ -227,15 +250,15 @@ Inherits WebSDKUIControl
 		    
 		    cssStr = String.FromArray( css, "" )
 		    
-		    teccToggleCSS = New WebFile
-		    teccToggleCSS.Filename = "teccToggle.css"
-		    teccToggleCSS.MIMEType = "text/css"
-		    teccToggleCSS.data = cssStr
-		    teccToggleCSS.Session = Nil 
+		    teccCheckboxCSS = New WebFile
+		    teccCheckboxCSS.Filename = "teccCheckbox.css"
+		    teccCheckboxCSS.MIMEType = "text/css"
+		    teccCheckboxCSS.data = cssStr
+		    teccCheckboxCSS.Session = Nil 
 		  End If
 		  
 		  Var urls() As String
-		  urls.Add( teccToggleCSS.URL )
+		  urls.Add( teccCheckboxCSS.URL )
 		  
 		  Return urls
 		End Function
@@ -288,7 +311,7 @@ Inherits WebSDKUIControl
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private Shared teccToggleCSS As WebFile
+		Private Shared teccCheckboxCSS As WebFile
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -308,13 +331,13 @@ Inherits WebSDKUIControl
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kJSCode, Type = String, Dynamic = False, Default = \"\"use strict\";\nvar tecc;\n(function (tecc) {\n    class teccToggle extends XojoWeb.XojoVisualControl {\n        constructor(id\x2C events) {\n            super(id\x2C events);\n        }\n        render() {\n            super.render();\n            let el \x3D this.DOMElement();\n            if (!el)\n                return;\n            this.setAttributes(el);\n            var idstr \x3D el.id + \"_teccToggle\";\n            let btn \x3D document.createElement(\"div\");\n            var disabledStr \x3D \"\";\n            var opacityStr \x3D \"\";\n            if (!this.enabled) {\n                disabledStr \x3D \"disabled\x3D\'disabled\'\";\n                opacityStr \x3D \";opacity: 20%\";\n            }\n            ;\n            var iOff \x3D \"\";\n            if (this.off \x3D\x3D true) {\n                iOff \x3D \"checked\x3D\'checked\'\";\n            }\n            ;\n            var cbid \x3D \"ts\" + idstr;\n            btn.innerHTML \x3D \"<label class\x3D\'toggle\'><input id\x3D\'\" + cbid + \"\' + class\x3D\'teccCB\' \" + iOff + \" type\x3D\'checkbox\' \" + disabledStr + \"><span class\x3D\'roundbutton\' style\x3D\'--crown:\" + this.activecrown + \"; --deactive-crown:\" + this.deactivecrown + \"; --deactive:\" + this.coloroff + \"; background-color: \" + this.coloron + opacityStr + \";transform: rotate(\" + this.crownposition + \"deg) scaleX(-1) !important;\" + \"\'></span></label>\";\n            btn.id \x3D idstr;\n            btn.addEventListener(\"click\"\x2C function (event) {\n                var controlObject \x3D XojoWeb.getNamedControl(el.id);\n                var jsonObj \x3D new XojoWeb.JSONItem();\n                jsonObj.set(\'ID\'\x2C el.id);\n                jsonObj.set(\'target\'\x2C event.target.tagName);\n                var c \x3D document.getElementById(cbid).checked;\n                jsonObj.set(\'value\'\x2C !c);\n                controlObject.triggerServerEvent(\'teccToggleClick\'\x2C jsonObj)\x2C true;\n            });\n            this.replaceEveryChild(btn);\n            this.applyTooltip(el);\n            this.applyUserStyle(el);\n        }\n        updateControl(data) {\n            super.updateControl(data);\n            let js \x3D $.parseJSON(data);\n            this.refresh();\n            this.off \x3D js.off;\n            this.coloron \x3D js.coloron;\n            this.crownposition \x3D js.crownposition;\n            this.activecrown \x3D js.activecrown;\n            this.deactivecrown \x3D js.deactivecrown;\n            this.coloroff \x3D js.coloroff;\n        }\n    }\n    tecc.teccToggle \x3D teccToggle;\n})(tecc || (tecc \x3D {}));\n", Scope = Private
+	#tag Constant, Name = kJSCode, Type = String, Dynamic = False, Default = \"\"use strict\";\nvar tecc;\n(function (tecc) {\n    class teccCheckbox extends XojoWeb.XojoVisualControl {\n        constructor(id\x2C events) {\n            super(id\x2C events);\n        }\n        render() {\n            super.render();\n            let el \x3D this.DOMElement();\n            if (!el)\n                return;\n            this.setAttributes(el);\n            var idstr \x3D el.id + \"_teccCheckbox\";\n            let btn \x3D document.createElement(\"div\");\n            var disabledStr \x3D \"\";\n            var opacityStr \x3D \"\";\n            if (!this.enabled) {\n                disabledStr \x3D \"disabled\x3D\'disabled\'\";\n                opacityStr \x3D \";opacity: 20%\";\n            }\n            var cbid \x3D \"ts\" + idstr;\n            \n            btn.innerHTML \x3D \"<input id\x3D\'\" + cbid + \"\' class\x3D\'\" + \"teccCheckbox\" + \"\' type\x3D\'checkbox\' /><label for\x3D\'\" + cbid + \"\'>Label content</label>\";\n            btn.id \x3D idstr;\n            btn.addEventListener(\"click\"\x2C function (event) {\n                var controlObject \x3D XojoWeb.getNamedControl(el.id);\n                var jsonObj \x3D new XojoWeb.JSONItem();\n                jsonObj.set(\'ID\'\x2C el.id);\n                jsonObj.set(\'target\'\x2C event.target.tagName);\n                var c \x3D document.getElementById(cbid).checked;\n                jsonObj.set(\'value\'\x2C !c);\n                controlObject.triggerServerEvent(\'teccCheckboxClick\'\x2C jsonObj)\x2C true;\n            });\n            this.replaceEveryChild(btn);\n            this.applyTooltip(el);\n            this.applyUserStyle(el);\n        }\n        updateControl(data) {\n            super.updateControl(data);\n            let js \x3D $.parseJSON(data);\n            this.refresh();\n           \n        }\n    }\n    tecc.teccCheckbox \x3D teccCheckbox;\n})(tecc || (tecc \x3D {}));\n", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = LibraryIcon, Type = String, Dynamic = False, Default = \"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", Scope = Public
+	#tag Constant, Name = LibraryIcon, Type = String, Dynamic = False, Default = \"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", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = NavigatorIcon, Type = String, Dynamic = False, Default = \"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", Scope = Public
+	#tag Constant, Name = NavigatorIcon, Type = String, Dynamic = False, Default = \"iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABemlDQ1BJQ0MgUHJvZmlsZQAAKJF9kE0rRFEYx38GkZemsJCUG8NqiFETGzUzCTWLaYzytrlzzYsy43bnCtlYKFtFiY23BZ+AjYWyVkqRkp0vQGyk6zmGxkt56jnP7zznOf/O+YPLq5vmTEknZLK2FR0IaqNj41rZA6XU4KaJBt3ImYFIJIzEV/0ZL9cUqXrVrrT+nv8blVOJnAFF5cJ9hmnZwoPCLfO2qVjp1VnyKOFlxak8byiO5/noYyYWDQmfCmtGWp8SvhP2GmkrAy6l74l/m0l948zMnPH5HvWTqkR2ZFhqs2QjOaIMEERjiH5C+OmiV1Y/7fjokB12YsFWl0Oz5qI1nUrbWkCcSGhDWaPDq/k6fTKjfP3tV6E3uws9z1C8VujFN+FkFepvCz3PDrhX4Pjc1C39o1Us6Uom4fEQqseg9hIqJnLJbl/+R1VBKL13nKdWKFuHtzXHed1znLd9uSwenWXzHn1qcXADsSUIX8DWNrSJtnvyHRa/ZybVhJ7LAAAAbGVYSWZNTQAqAAAACAAEARoABQAAAAEAAAA+ARsABQAAAAEAAABGASgAAwAAAAEAAgAAh2kABAAAAAEAAABOAAAAAAAAAGAAAAABAAAAYAAAAAEAAqACAAQAAAABAAAAEKADAAQAAAABAAAAEAAAAADImMOoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABP0lEQVQ4EZWTv0sDQRCFLyKaKLaiwUZIoYVoJ9iIjf+F2CUGCUlnmmAj1mJj6VlYBCwEQbDRzlIsUgg26bQR7IKC4PeSuWO4IFkffDezs2/ndu9HLhpom1CDGRuPCj0MMbTHuWjxDZxBF0I0j+kcJmTW4hMl/1QT/+MYF227C6Mk7z3cwiy8QEFHCFUd45aZN5JF6hqiJUzHZtSRr5NFIQ20yxjy8AFlSJVtIPN0OjtIDgjrVtsnvlveD75BgcodPMNCfzaKVokty6+IbcvT4BssU92EEjzAIsQwCbrrHgzJN3hidhd+QE06sAZSFXT+IenMXpc2uCBOuTx96t6sPNtANd/kjXFDxb+kBvox5jIGNXkFbfszM5cM9aC/1CAG/Rgy6vP0KjJY8QXLtfgIDnNW2CFWQB9LiL4x6ZWe/gIdKjEjhctD+wAAAABJRU5ErkJggg\x3D\x3D", Scope = Public
 	#tag EndConstant
 
 

@@ -387,6 +387,56 @@ Begin WebPage wpDEMO
       Width           =   218
       _mPanelIndex    =   -1
    End
+   Begin teccCheckbox teccCheckbox1
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   34
+      Index           =   -2147483648
+      Indicator       =   ""
+      Left            =   283
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   2
+      TabIndex        =   87
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   140
+      value           =   False
+      Visible         =   True
+      Width           =   300
+      _mPanelIndex    =   -1
+   End
+   Begin WebCheckbox Checkbox1
+      Caption         =   "Untitled"
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   34
+      Indeterminate   =   False
+      Index           =   -2147483648
+      Indicator       =   ""
+      Left            =   535
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   2
+      TabIndex        =   88
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   74
+      Value           =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
 End
 #tag EndWebPage
 

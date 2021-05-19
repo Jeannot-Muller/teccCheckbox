@@ -388,10 +388,11 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox1
-      Border          =   0
+      ActiveBackground=   &c00F90000
+      Background      =   &cFEFFFF00
       BorderColor     =   &cFF260000
-      BorderStyle     =   ""
-      CheckboxBorderstyle=   ""
+      BorderStyle     =   7
+      CheckboxBorder  =   ""
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -405,9 +406,9 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      MarkerColor     =   &cFF260000
+      MarkerColor     =   &c008F5100
       Scope           =   2
-      Symbol          =   ""
+      Symbol          =   3
       TabIndex        =   87
       Tooltip         =   ""
       Top             =   113
@@ -535,10 +536,11 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox2
-      Border          =   ""
+      ActiveBackground=   &cA9A9A900
+      Background      =   &cEAEAEA00
       BorderColor     =   &c0096FF00
-      BorderStyle     =   ""
-      CheckboxBorderstyle=   ""
+      BorderStyle     =   7
+      CheckboxBorder  =   1
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -564,10 +566,11 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox3
-      Border          =   ""
+      ActiveBackground=   &cFFFFFF00
+      Background      =   &cFFFFFF00
       BorderColor     =   &c0096FF00
-      BorderStyle     =   ""
-      CheckboxBorderstyle=   ""
+      BorderStyle     =   7
+      CheckboxBorder  =   2
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -583,7 +586,7 @@ Begin WebPage wpDEMO
       LockVertical    =   False
       MarkerColor     =   &c0096FF00
       Scope           =   0
-      Symbol          =   ""
+      Symbol          =   3
       TabIndex        =   95
       Tooltip         =   ""
       Top             =   113
@@ -681,7 +684,7 @@ Begin WebPage wpDEMO
       Enabled         =   True
       Height          =   38
       Index           =   -2147483648
-      indicator       =   0
+      Indicator       =   0
       InitialValue    =   "dashed\ndotted\ndouble\ngroove\ninset\noutset\nridge\nsolid"
       LastAddedRowIndex=   0
       LastRowIndex    =   0
@@ -693,13 +696,11 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
       SelectedRowIndex=   7
       SelectedRowValue=   ""
       TabIndex        =   99
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   247
       Visible         =   True

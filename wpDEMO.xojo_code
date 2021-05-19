@@ -127,7 +127,7 @@ Begin WebPage wpDEMO
       Indicator       =   0
       LayoutDirection =   0
       LayoutType      =   0
-      Left            =   20
+      Left            =   30
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -138,7 +138,7 @@ Begin WebPage wpDEMO
       Scope           =   0
       TabIndex        =   60
       Tooltip         =   ""
-      Top             =   250
+      Top             =   413
       Visible         =   True
       Width           =   1007
       _mDesignHeight  =   0
@@ -388,8 +388,10 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox1
+      Border          =   0
       BorderColor     =   &cFF260000
-      CheckboxBorder  =   ""
+      BorderStyle     =   ""
+      CheckboxBorderstyle=   ""
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -533,8 +535,10 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox2
+      Border          =   ""
       BorderColor     =   &c0096FF00
-      CheckboxBorder  =   1
+      BorderStyle     =   ""
+      CheckboxBorderstyle=   ""
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -560,8 +564,10 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox3
+      Border          =   ""
       BorderColor     =   &c0096FF00
-      CheckboxBorder  =   2
+      BorderStyle     =   ""
+      CheckboxBorderstyle=   ""
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -608,7 +614,6 @@ Begin WebPage wpDEMO
       SelectedRowIndex=   1
       SelectedRowValue=   ""
       TabIndex        =   96
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   201
       Visible         =   True
@@ -620,7 +625,7 @@ Begin WebPage wpDEMO
       Enabled         =   True
       Height          =   38
       Index           =   -2147483648
-      indicator       =   0
+      Indicator       =   0
       InitialValue    =   "thin\nmedium\nbig"
       LastAddedRowIndex=   0
       LastRowIndex    =   0
@@ -632,13 +637,11 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
       SelectedRowIndex=   1
       SelectedRowValue=   ""
       TabIndex        =   97
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   201
       Visible         =   True
@@ -650,7 +653,7 @@ Begin WebPage wpDEMO
       Enabled         =   True
       Height          =   38
       Index           =   -2147483648
-      indicator       =   0
+      Indicator       =   0
       InitialValue    =   "thin\nmedium\nbig"
       LastAddedRowIndex=   0
       LastRowIndex    =   0
@@ -662,15 +665,43 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
       SelectedRowIndex=   1
       SelectedRowValue=   ""
       TabIndex        =   98
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   201
+      Visible         =   True
+      Width           =   128
+      _mPanelIndex    =   -1
+   End
+   Begin WebPopupMenu pmBorderStyle1
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   38
+      Index           =   -2147483648
+      indicator       =   0
+      InitialValue    =   "dashed\ndotted\ndouble\ngroove\ninset\noutset\nridge\nsolid"
+      LastAddedRowIndex=   0
+      LastRowIndex    =   0
+      Left            =   259
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      PanelIndex      =   0
+      RowCount        =   0
+      Scope           =   0
+      SelectedRowIndex=   7
+      SelectedRowValue=   ""
+      TabIndex        =   99
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   247
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -685,6 +716,10 @@ End
 		  lblValue2.Text = teccCheckbox2.value.ToString
 		  lblValue3.Text = teccCheckbox3.value.ToString
 		  
+		  
+		  teccCheckbox1.BorderStyle = teccCheckbox.BorderStyles.solid
+		  teccCheckbox2.BorderStyle = teccCheckbox.BorderStyles.solid
+		  teccCheckbox3.BorderStyle = teccCheckbox.BorderStyles.solid
 		  
 		  // Change color via Code
 		  // teccToggle4.Design = &c00ff00
@@ -783,6 +818,14 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  teccCheckbox3.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
 		  teccCheckbox3.UpdateControl
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events pmBorderStyle1
+	#tag Event
+		Sub SelectionChanged(item as WebMenuItem)
+		  teccCheckbox1.BorderStyle = teccCheckbox.BorderStyles( me.SelectedRowIndex)
+		  teccCheckbox1.UpdateControl
 		End Sub
 	#tag EndEvent
 #tag EndEvents

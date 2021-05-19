@@ -138,7 +138,7 @@ Begin WebPage wpDEMO
       Scope           =   0
       TabIndex        =   60
       Tooltip         =   ""
-      Top             =   201
+      Top             =   250
       Visible         =   True
       Width           =   1007
       _mDesignHeight  =   0
@@ -388,12 +388,14 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox1
+      BorderColor     =   &cFF260000
+      CheckboxBorder  =   ""
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
       Index           =   -2147483648
-      Indicator       =   ""
-      Left            =   283
+      Indicator       =   0
+      Left            =   259
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -401,13 +403,15 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      MarkerColor     =   &cFF260000
       Scope           =   2
+      Symbol          =   ""
       TabIndex        =   87
       Tooltip         =   ""
-      Top             =   140
+      Top             =   113
       value           =   False
       Visible         =   True
-      Width           =   300
+      Width           =   53
       _mPanelIndex    =   -1
    End
    Begin WebCheckbox Checkbox1
@@ -435,12 +439,251 @@ Begin WebPage wpDEMO
       Width           =   100
       _mPanelIndex    =   -1
    End
+   Begin WebLabel lblValue1
+      Bold            =   False
+      ControlID       =   ""
+      Enabled         =   True
+      FontName        =   ""
+      FontSize        =   0.0
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   ""
+      Italic          =   False
+      Left            =   259
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      TabIndex        =   89
+      Text            =   "Untitled"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   155
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
+   Begin WebLabel lblValue2
+      Bold            =   False
+      ControlID       =   ""
+      Enabled         =   True
+      FontName        =   ""
+      FontSize        =   0.0
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   0
+      Italic          =   False
+      Left            =   411
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      TabIndex        =   92
+      Text            =   "Untitled"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   155
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
+   Begin WebLabel lblValue3
+      Bold            =   False
+      ControlID       =   ""
+      Enabled         =   True
+      FontName        =   ""
+      FontSize        =   0.0
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   0
+      Italic          =   False
+      Left            =   556
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      TabIndex        =   93
+      Text            =   "Untitled"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   155
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
+   Begin teccCheckbox teccCheckbox2
+      BorderColor     =   &c0096FF00
+      CheckboxBorder  =   1
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   34
+      Index           =   -2147483648
+      Indicator       =   0
+      Left            =   411
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      MarkerColor     =   &c0096FF00
+      Scope           =   0
+      Symbol          =   ""
+      TabIndex        =   94
+      Tooltip         =   ""
+      Top             =   113
+      value           =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
+   Begin teccCheckbox teccCheckbox3
+      BorderColor     =   &c0096FF00
+      CheckboxBorder  =   2
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   34
+      Index           =   -2147483648
+      Indicator       =   0
+      Left            =   556
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      MarkerColor     =   &c0096FF00
+      Scope           =   0
+      Symbol          =   ""
+      TabIndex        =   95
+      Tooltip         =   ""
+      Top             =   113
+      value           =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
+   Begin WebPopupMenu pmBorder1
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   ""
+      InitialValue    =   "thin\nmedium\nbig"
+      LastAddedRowIndex=   0
+      LastRowIndex    =   0
+      Left            =   259
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      RowCount        =   0
+      Scope           =   0
+      SelectedRowIndex=   1
+      SelectedRowValue=   ""
+      TabIndex        =   96
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   201
+      Visible         =   True
+      Width           =   128
+      _mPanelIndex    =   -1
+   End
+   Begin WebPopupMenu pmBorder2
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   38
+      Index           =   -2147483648
+      indicator       =   0
+      InitialValue    =   "thin\nmedium\nbig"
+      LastAddedRowIndex=   0
+      LastRowIndex    =   0
+      Left            =   411
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      PanelIndex      =   0
+      RowCount        =   0
+      Scope           =   0
+      SelectedRowIndex=   1
+      SelectedRowValue=   ""
+      TabIndex        =   97
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   201
+      Visible         =   True
+      Width           =   128
+      _mPanelIndex    =   -1
+   End
+   Begin WebPopupMenu pmBorder3
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   38
+      Index           =   -2147483648
+      indicator       =   0
+      InitialValue    =   "thin\nmedium\nbig"
+      LastAddedRowIndex=   0
+      LastRowIndex    =   0
+      Left            =   556
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      PanelIndex      =   0
+      RowCount        =   0
+      Scope           =   0
+      SelectedRowIndex=   1
+      SelectedRowValue=   ""
+      TabIndex        =   98
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   201
+      Visible         =   True
+      Width           =   128
+      _mPanelIndex    =   -1
+   End
 End
 #tag EndWebPage
 
 #tag WindowCode
 	#tag Event
 		Sub Opening()
+		  lblValue1.Text = teccCheckbox1.value.ToString
+		  lblValue2.Text = teccCheckbox2.value.ToString
+		  lblValue3.Text = teccCheckbox3.value.ToString
 		  
 		  
 		  // Change color via Code
@@ -495,6 +738,51 @@ End
 	#tag Event
 		Sub Pressed()
 		  session.GoToURL( "https://blog.xojodocs.com", true )
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events teccCheckbox1
+	#tag Event , Description = 4669726573207768656E2074686520636F6E74726F6C20697320636C69636B65642E2052657475726E7320746865206368616E676564207374617475732E0A737461747573203D2074686520737461747573206F662074686520636F6E74726F6C2E0A6F626A6563746964203D20746865206964206F6620746865206372656174656420444F4D20656C656D656E742E
+		Sub teccCheckboxClick()
+		  lblValue1.Text = teccCheckbox1.value.ToString
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events teccCheckbox2
+	#tag Event , Description = 4669726573207768656E2074686520636F6E74726F6C20697320636C69636B65642E2052657475726E7320746865206368616E676564207374617475732E0A737461747573203D2074686520737461747573206F662074686520636F6E74726F6C2E0A6F626A6563746964203D20746865206964206F6620746865206372656174656420444F4D20656C656D656E742E
+		Sub teccCheckboxClick()
+		  lblValue2.Text = teccCheckbox2.value.ToString
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events teccCheckbox3
+	#tag Event , Description = 4669726573207768656E2074686520636F6E74726F6C20697320636C69636B65642E2052657475726E7320746865206368616E676564207374617475732E0A737461747573203D2074686520737461747573206F662074686520636F6E74726F6C2E0A6F626A6563746964203D20746865206964206F6620746865206372656174656420444F4D20656C656D656E742E
+		Sub teccCheckboxClick()
+		  lblValue3.Text = teccCheckbox3.value.ToString
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events pmBorder1
+	#tag Event
+		Sub SelectionChanged(item as WebMenuItem)
+		  teccCheckbox1.CheckboxBorder = teccCheckbox.BorderDimensions( me.SelectedRowIndex)
+		  teccCheckbox1.UpdateControl
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events pmBorder2
+	#tag Event
+		Sub SelectionChanged(item as WebMenuItem)
+		  teccCheckbox2.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
+		  teccCheckbox2.UpdateControl
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events pmBorder3
+	#tag Event
+		Sub SelectionChanged(item as WebMenuItem)
+		  teccCheckbox3.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
+		  teccCheckbox3.UpdateControl
 		End Sub
 	#tag EndEvent
 #tag EndEvents

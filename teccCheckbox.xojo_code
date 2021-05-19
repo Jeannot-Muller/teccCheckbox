@@ -6,16 +6,20 @@ Inherits WebSDKUIControl
 		  // Visual WebSDK controls can "draw" themselves in the IDE
 		  
 		  '// todo4
-		  'g.FontName = "Helvetica"
-		  'g.FontUnit = FontUnits.Point
-		  'g.FontSize = 21
+		  g.FontName = "Helvetica"
+		  g.FontUnit = FontUnits.Point
+		  g.FontSize = 21
+		  
+		  If BooleanProperty("enabled") = False Then
+		    g.Transparency = 60
+		  Else
+		    g.Transparency = 0
+		  End If
 		  '
-		  'If BooleanProperty("enabled") = False Then
-		  'g.Transparency = 60
-		  'Else
-		  'g.Transparency = 0
-		  'End If
-		  '
+		  g.DrawingColor = &cff0000
+		  g.FillRectangle(0, 0, 25, 25 )
+		  
+		  
 		  'If BooleanProperty("visible") = True Then
 		  'Select Case IntegerProperty("CrownPosition")
 		  'Case 0
@@ -113,7 +117,7 @@ Inherits WebSDKUIControl
 	#tag Event
 		Sub Opening()
 		  Self.Style.value("outline") = "none"
-		  mvalue = True
+		  mvalue = false
 		  'If InitiallyOff = True Then
 		  'mvalue = False
 		  'End If
@@ -136,20 +140,20 @@ Inherits WebSDKUIControl
 		  'passValue = True
 		  'End If
 		  '
-		  'Var cposition As String = "0"
-		  'Select Case CrownPosition 
-		  'Case cpositions.Right
-		  'cposition = "360"
-		  'Case cpositions.Left
-		  'cposition = "180"
-		  'Case cpositions.top
-		  'cposition = "270"
-		  'Case cpositions.Bottom
-		  'cposition = "90"
+		  Var borderWidth As String = "--borderwidth: 1px;"
+		  Select Case CheckboxBorder
+		  Case BorderDimensions.Thin
+		    borderWidth = "--borderwidth: 1px;"
+		  Case BorderDimensions.Medium
+		    borderWidth = "--borderwidth: 2px;"
+		  Case BorderDimensions.Big
+		    borderWidth = "--borderwidth: 4px;"
+		  End Select
 		  '
-		  'End Select
-		  '
-		  'js.value("off") = passValue
+		  js.value("value") = mvalue
+		  js.value("borderwidth") = borderWidth
+		  js.value("bordercolor") = " --bordercolor: #" + BorderColor.ToString.Right(6) + ";"
+		  js.value("markercolor") = " --markercolor: #" + MarkerColor.ToString.Right(6) + " !important;" 
 		  'js.value("coloron") = "#" + ActiveColor.ToString.Right(6)
 		  'js.value("coloroff") = "#" + DeactiveColor.ToString.Right(6)
 		  'js.value("crownposition") = cposition 
@@ -176,9 +180,14 @@ Inherits WebSDKUIControl
 		    css.Add("display: inline-flex;")
 		    css.Add("cursor: pointer;")
 		    css.Add("position: relative;")
+		    css.Add("--left: 5px;")
+		    css.Add("--top: -2.5px;")
+		    css.Add("--bordercolor: #0096ff;")
+		    css.Add("--markercolor: #0096ff;")
+		    css.Add("--borderwidth: 2px;")
 		    css.Add("}")
 		    css.Add(".teccCheckbox > span {")
-		    css.Add("color: #34495E;")
+		    css.Add("color: var(--markercolor);")
 		    css.Add("padding: 0.5rem 0.25rem;")
 		    css.Add("}")
 		    css.Add(".teccCheckbox > input {")
@@ -188,7 +197,7 @@ Inherits WebSDKUIControl
 		    css.Add("-moz-appearance: none;")
 		    css.Add("-o-appearance: none;")
 		    css.Add("appearance: none;")
-		    css.Add("border: 2px solid #0096ff;")
+		    css.Add("border: var(--borderwidth) solid var(--bordercolor);")
 		    css.Add("border-radius: 4px;")
 		    css.Add("outline: none;")
 		    css.Add("transition-duration: 0.3s;")
@@ -196,21 +205,24 @@ Inherits WebSDKUIControl
 		    css.Add("cursor: pointer;")
 		    css.Add("}")
 		    css.Add(".teccCheckbox > input:checked {")
-		    css.Add("border: 2px solid #0096ff;")
+		    css.Add("border: var(--borderwidth) solid var(--bordercolor);")
 		    css.Add("background-color: #ffffff;")
 		    css.Add("}")
 		    css.Add(".teccCheckbox > input:checked + span::before {")
-		    css.Add("content: '\2713';")
+		    'css.Add("content: '\2713';") // arrow
+		    'css.Add("content: '\002b';") // plus
+		    'css.Add("content: '\2212';") // dash
+		    css.Add("content: 'x';")
 		    css.Add("display: block;")
 		    css.Add("text-align: center;")
-		    css.Add("color: #0096ff;")
-		    css.Add("font-size: 22px;")
+		    css.Add("color: var(--markercolor);")
+		    css.Add("font: 30px/25px Helvetica;")
 		    css.Add("position: absolute;")
-		    css.Add("left: 3px;")
-		    css.Add("top: -4px;")
+		    css.Add("left: var(--left);")
+		    css.Add("top: var(--top);")
 		    css.Add("}")
 		    css.Add(".teccCheckbox > input:active {")
-		    css.Add("border: 2px solid #0096ff;")
+		    css.Add("border: var(--borderwidth) solid var(--bordercolor);")
 		    css.Add("}")
 		    
 		    cssStr = String.FromArray( css, "" )
@@ -241,7 +253,7 @@ Inherits WebSDKUIControl
 		  #Pragma unused session
 		  If JSFramework = Nil Then
 		    JSFramework = New WebFile
-		    JSFramework.Filename = "teccToggle.js"
+		    JSFramework.Filename = "teccCheckbox.js"
 		    JSFramework.MIMEType ="text/javascript"
 		    JSFramework.data = kJSCode
 		    JSFramework.Session = Nil 
@@ -260,8 +272,20 @@ Inherits WebSDKUIControl
 	#tag EndHook
 
 
+	#tag Property, Flags = &h0
+		BorderColor As Color = &c0096ff
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		CheckboxBorder As BorderDimensions
+	#tag EndProperty
+
 	#tag Property, Flags = &h21
 		Private Shared JSFramework As WebFile
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		MarkerColor As Color = &c0096ff
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -273,6 +297,10 @@ Inherits WebSDKUIControl
 
 	#tag Property, Flags = &h21
 		Private objectid As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Symbol As Symbols
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -289,14 +317,14 @@ Inherits WebSDKUIControl
 			Set
 			  mvalue = value
 			  
-			  Call teccCheckboxClick()
+			  'Call teccCheckboxClick()
 			End Set
 		#tag EndSetter
 		value As boolean
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kJSCode, Type = String, Dynamic = False, Default = \"\"use strict\";\nvar tecc;\n(function (tecc) {\n    class teccCheckbox extends XojoWeb.XojoVisualControl {\n        constructor(id\x2C events) {\n            super(id\x2C events);\n        }\n        render() {\n            super.render();\n            let el \x3D this.DOMElement();\n            if (!el)\n                return;\n            this.setAttributes(el);\n            var idstr \x3D el.id + \"_teccCheckbox\";\n            let btn \x3D document.createElement(\"div\");\n            var disabledStr \x3D \"\";\n            var opacityStr \x3D \"\";\n            if (!this.enabled) {\n                disabledStr \x3D \"disabled\x3D\'disabled\'\";\n                opacityStr \x3D \";opacity: 20%\";\n            }\n            var cbid \x3D \"ts\" + idstr;\n            \n            btn.innerHTML \x3D \"<label class\x3D\'teccCheckbox\'><input id\x3D\'\" + cbid + \"\' class\x3D\'teccCheckbox\' type\x3D\'checkbox\' /><span></span></label>\";\n            btn.id \x3D idstr;\n            btn.addEventListener(\"click\"\x2C function (event) {\n                var controlObject \x3D XojoWeb.getNamedControl(el.id);\n                var jsonObj \x3D new XojoWeb.JSONItem();\n                jsonObj.set(\'ID\'\x2C el.id);\n                jsonObj.set(\'target\'\x2C event.target.tagName);\n                var c \x3D document.getElementById(cbid).checked;\n                jsonObj.set(\'value\'\x2C !c);\n                controlObject.triggerServerEvent(\'teccCheckboxClick\'\x2C jsonObj)\x2C true;\n            });\n            this.replaceEveryChild(btn);\n            this.applyTooltip(el);\n            this.applyUserStyle(el);\n        }\n        updateControl(data) {\n            super.updateControl(data);\n            let js \x3D $.parseJSON(data);\n            this.refresh();\n           \n        }\n    }\n    tecc.teccCheckbox \x3D teccCheckbox;\n})(tecc || (tecc \x3D {}));\n", Scope = Private
+	#tag Constant, Name = kJSCode, Type = String, Dynamic = False, Default = \"\"use strict\";\nvar tecc;\n(function (tecc) {\n    class teccCheckbox extends XojoWeb.XojoVisualControl {\n        constructor(id\x2C events) {\n            super(id\x2C events);\n        }\n        render() {\n            super.render();\n            let el \x3D this.DOMElement();\n            if (!el)\n                return;\n            this.setAttributes(el);\n            var idstr \x3D el.id + \"_teccCheckbox\";\n            let btn \x3D document.createElement(\"div\");\n            var disabledStr \x3D \"\";\n            var opacityStr \x3D \"\";\n            if (!this.enabled) {\n                disabledStr \x3D \"disabled\x3D\'disabled\'\";\n                opacityStr \x3D \";opacity: 20%\";\n            }\n            var cbid \x3D \"ts\" + idstr;\n            \n            btn.innerHTML \x3D \"<label class\x3D\'teccCheckbox\'><input id\x3D\'\" + cbid + \"\' class\x3D\'teccCheckbox\' type\x3D\'checkbox\' style\x3D\'\" + this.borderwidth + this.bordercolor + \"\'/><span style\x3D\'\" + this.markercolor  + \"\'></span></label>\";\n            btn.id \x3D idstr;\n            btn.addEventListener(\"click\"\x2C function (event) {\n                var controlObject \x3D XojoWeb.getNamedControl(el.id);\n                var jsonObj \x3D new XojoWeb.JSONItem();\n                jsonObj.set(\'ID\'\x2C el.id);\n                jsonObj.set(\'target\'\x2C event.target.tagName);\n                var c \x3D document.getElementById(cbid).checked;\n                jsonObj.set(\'value\'\x2C c);\n                controlObject.triggerServerEvent(\'teccCheckboxClick\'\x2C jsonObj)\x2C true;\n            });\n            this.replaceEveryChild(btn);\n            this.applyTooltip(el);\n            this.applyUserStyle(el);\n        }\n        updateControl(data) {\n            super.updateControl(data);\n            let js \x3D $.parseJSON(data);\n            this.refresh();\n           this.value \x3D js.value;\n\t   this.borderwidth \x3D js.borderwidth;\n\t   this.bordercolor \x3D js.bordercolor;\n\t   this.markercolor \x3D js.markercolor;\n        }\n    }\n    tecc.teccCheckbox \x3D teccCheckbox;\n})(tecc || (tecc \x3D {}));\n", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = LibraryIcon, Type = String, Dynamic = False, Default = \"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", Scope = Public
@@ -304,6 +332,20 @@ Inherits WebSDKUIControl
 
 	#tag Constant, Name = NavigatorIcon, Type = String, Dynamic = False, Default = \"iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABemlDQ1BJQ0MgUHJvZmlsZQAAKJF9kE0rRFEYx38GkZemsJCUG8NqiFETGzUzCTWLaYzytrlzzYsy43bnCtlYKFtFiY23BZ+AjYWyVkqRkp0vQGyk6zmGxkt56jnP7zznOf/O+YPLq5vmTEknZLK2FR0IaqNj41rZA6XU4KaJBt3ImYFIJIzEV/0ZL9cUqXrVrrT+nv8blVOJnAFF5cJ9hmnZwoPCLfO2qVjp1VnyKOFlxak8byiO5/noYyYWDQmfCmtGWp8SvhP2GmkrAy6l74l/m0l948zMnPH5HvWTqkR2ZFhqs2QjOaIMEERjiH5C+OmiV1Y/7fjokB12YsFWl0Oz5qI1nUrbWkCcSGhDWaPDq/k6fTKjfP3tV6E3uws9z1C8VujFN+FkFepvCz3PDrhX4Pjc1C39o1Us6Uom4fEQqseg9hIqJnLJbl/+R1VBKL13nKdWKFuHtzXHed1znLd9uSwenWXzHn1qcXADsSUIX8DWNrSJtnvyHRa/ZybVhJ7LAAAAbGVYSWZNTQAqAAAACAAEARoABQAAAAEAAAA+ARsABQAAAAEAAABGASgAAwAAAAEAAgAAh2kABAAAAAEAAABOAAAAAAAAAGAAAAABAAAAYAAAAAEAAqACAAQAAAABAAAAEKADAAQAAAABAAAAEAAAAADImMOoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABP0lEQVQ4EZWTv0sDQRCFLyKaKLaiwUZIoYVoJ9iIjf+F2CUGCUlnmmAj1mJj6VlYBCwEQbDRzlIsUgg26bQR7IKC4PeSuWO4IFkffDezs2/ndu9HLhpom1CDGRuPCj0MMbTHuWjxDZxBF0I0j+kcJmTW4hMl/1QT/+MYF227C6Mk7z3cwiy8QEFHCFUd45aZN5JF6hqiJUzHZtSRr5NFIQ20yxjy8AFlSJVtIPN0OjtIDgjrVtsnvlveD75BgcodPMNCfzaKVokty6+IbcvT4BssU92EEjzAIsQwCbrrHgzJN3hidhd+QE06sAZSFXT+IenMXpc2uCBOuTx96t6sPNtANd/kjXFDxb+kBvox5jIGNXkFbfszM5cM9aC/1CAG/Rgy6vP0KjJY8QXLtfgIDnNW2CFWQB9LiL4x6ZWe/gIdKjEjhctD+wAAAABJRU5ErkJggg\x3D\x3D", Scope = Public
 	#tag EndConstant
+
+
+	#tag Enum, Name = BorderDimensions, Type = integer, Flags = &h0
+		Thin
+		  Medium
+		Big
+	#tag EndEnum
+
+	#tag Enum, Name = Symbols, Type = integer, Flags = &h0
+		Arrow
+		  Cross
+		  Dash
+		Plus
+	#tag EndEnum
 
 
 	#tag ViewBehavior
@@ -441,6 +483,49 @@ Inherits WebSDKUIControl
 			Group="Visual Controls"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Symbol"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue=""
+			Type="Symbols"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Arrow"
+				"1 - Cross"
+				"2 - Dash"
+				"3 - Plus"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CheckboxBorder"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue=""
+			Type="BorderDimensions"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Thin"
+				"1 - Medium"
+				"2 - Big"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BorderColor"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue="&c0096ff"
+			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MarkerColor"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue="&c0096ff"
+			Type="Color"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

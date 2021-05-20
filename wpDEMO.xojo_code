@@ -66,7 +66,7 @@ Begin WebPage wpDEMO
       ControlID       =   ""
       Enabled         =   True
       HasBackgroundColor=   True
-      Height          =   354
+      Height          =   238
       Index           =   -2147483648
       Indicator       =   0
       LayoutDirection =   0
@@ -99,7 +99,7 @@ Begin WebPage wpDEMO
       Indicator       =   0
       LayoutDirection =   0
       LayoutType      =   0
-      Left            =   30
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -110,7 +110,7 @@ Begin WebPage wpDEMO
       Scope           =   0
       TabIndex        =   60
       Tooltip         =   ""
-      Top             =   413
+      Top             =   201
       Visible         =   True
       Width           =   1007
       _mDesignHeight  =   0
@@ -361,6 +361,7 @@ Begin WebPage wpDEMO
    End
    Begin teccCheckbox teccCheckbox1
       ActiveBackground=   &c00F90000
+      ActiveBorder    =   &c008F5100
       Background      =   &cFF7D7800
       BorderColor     =   &cFF260000
       BorderStyle     =   7
@@ -398,7 +399,7 @@ Begin WebPage wpDEMO
       Indeterminate   =   False
       Index           =   -2147483648
       Indicator       =   ""
-      Left            =   535
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -409,7 +410,7 @@ Begin WebPage wpDEMO
       Scope           =   2
       TabIndex        =   88
       Tooltip         =   ""
-      Top             =   74
+      Top             =   398
       Value           =   False
       Visible         =   True
       Width           =   100
@@ -436,7 +437,7 @@ Begin WebPage wpDEMO
       Multiline       =   False
       Scope           =   0
       TabIndex        =   89
-      Text            =   "Untitled"
+      Text            =   "-"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
@@ -467,7 +468,7 @@ Begin WebPage wpDEMO
       Multiline       =   False
       Scope           =   0
       TabIndex        =   92
-      Text            =   "Untitled"
+      Text            =   "-"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
@@ -498,7 +499,7 @@ Begin WebPage wpDEMO
       Multiline       =   False
       Scope           =   0
       TabIndex        =   93
-      Text            =   "Untitled"
+      Text            =   "-"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
@@ -509,8 +510,9 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin teccCheckbox teccCheckbox2
-      ActiveBackground=   &cA9A9A900
-      Background      =   &cEAEAEA00
+      ActiveBackground=   &cEAEAEA00
+      ActiveBorder    =   &c0096FF00
+      Background      =   &cFEFFFF00
       BorderColor     =   &c0096FF00
       BorderStyle     =   7
       CheckboxBorder  =   1
@@ -541,6 +543,7 @@ Begin WebPage wpDEMO
    End
    Begin teccCheckbox teccCheckbox3
       ActiveBackground=   &cFFFFFF00
+      ActiveBorder    =   &c0096FF00
       Background      =   &cFFFFFF00
       BorderColor     =   &c0096FF00
       BorderStyle     =   7
@@ -576,7 +579,7 @@ Begin WebPage wpDEMO
       Height          =   38
       Index           =   -2147483648
       Indicator       =   ""
-      InitialValue    =   "thin\nmedium\nbig"
+      InitialValue    =   "thin\nmedium\nlarge"
       LastAddedRowIndex=   0
       LastRowIndex    =   0
       Left            =   259
@@ -589,11 +592,11 @@ Begin WebPage wpDEMO
       LockVertical    =   False
       RowCount        =   0
       Scope           =   0
-      SelectedRowIndex=   1
+      SelectedRowIndex=   0
       SelectedRowValue=   ""
       TabIndex        =   96
       Tooltip         =   ""
-      Top             =   201
+      Top             =   221
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -604,7 +607,7 @@ Begin WebPage wpDEMO
       Height          =   38
       Index           =   -2147483648
       Indicator       =   0
-      InitialValue    =   "thin\nmedium\nbig"
+      InitialValue    =   "thin\nmedium\nlarge"
       LastAddedRowIndex=   0
       LastRowIndex    =   0
       Left            =   411
@@ -621,7 +624,7 @@ Begin WebPage wpDEMO
       SelectedRowValue=   ""
       TabIndex        =   97
       Tooltip         =   ""
-      Top             =   201
+      Top             =   221
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -632,7 +635,7 @@ Begin WebPage wpDEMO
       Height          =   38
       Index           =   -2147483648
       Indicator       =   0
-      InitialValue    =   "thin\nmedium\nbig"
+      InitialValue    =   "thin\nmedium\nlarge"
       LastAddedRowIndex=   0
       LastRowIndex    =   0
       Left            =   556
@@ -645,11 +648,11 @@ Begin WebPage wpDEMO
       LockVertical    =   False
       RowCount        =   0
       Scope           =   0
-      SelectedRowIndex=   1
+      SelectedRowIndex=   2
       SelectedRowValue=   ""
       TabIndex        =   98
       Tooltip         =   ""
-      Top             =   201
+      Top             =   221
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -677,7 +680,7 @@ Begin WebPage wpDEMO
       SelectedRowValue=   ""
       TabIndex        =   99
       Tooltip         =   ""
-      Top             =   247
+      Top             =   267
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -699,15 +702,13 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
-      SelectedRowIndex=   1
+      SelectedRowIndex=   3
       SelectedRowValue=   ""
       TabIndex        =   100
-      TabStop         =   True
       Tooltip         =   ""
-      Top             =   293
+      Top             =   313
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -729,15 +730,13 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
-      SelectedRowIndex=   1
+      SelectedRowIndex=   0
       SelectedRowValue=   ""
       TabIndex        =   101
-      TabStop         =   True
       Tooltip         =   ""
-      Top             =   293
+      Top             =   313
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -759,15 +758,13 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
-      SelectedRowIndex=   1
+      SelectedRowIndex=   3
       SelectedRowValue=   ""
       TabIndex        =   102
-      TabStop         =   True
       Tooltip         =   ""
-      Top             =   293
+      Top             =   313
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -789,15 +786,13 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
       SelectedRowIndex=   7
       SelectedRowValue=   ""
       TabIndex        =   103
-      TabStop         =   True
       Tooltip         =   ""
-      Top             =   247
+      Top             =   267
       Visible         =   True
       Width           =   128
       _mPanelIndex    =   -1
@@ -819,17 +814,49 @@ Begin WebPage wpDEMO
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      PanelIndex      =   0
       RowCount        =   0
       Scope           =   0
       SelectedRowIndex=   7
       SelectedRowValue=   ""
       TabIndex        =   104
-      TabStop         =   True
       Tooltip         =   ""
-      Top             =   247
+      Top             =   267
       Visible         =   True
       Width           =   128
+      _mPanelIndex    =   -1
+   End
+   Begin WebLabel lblValue4
+      Bold            =   True
+      ControlID       =   ""
+      Enabled         =   True
+      FontName        =   ""
+      FontSize        =   0.0
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   0
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      PanelIndex      =   0
+      Scope           =   0
+      TabIndex        =   105
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Xojo default is not touched"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   366
+      Underline       =   False
+      Visible         =   True
+      Width           =   214
       _mPanelIndex    =   -1
    End
 End

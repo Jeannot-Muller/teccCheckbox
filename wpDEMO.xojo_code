@@ -392,7 +392,7 @@ Begin WebPage wpDEMO
       _mPanelIndex    =   -1
    End
    Begin WebCheckbox Checkbox1
-      Caption         =   "Untitled"
+      Caption         =   "Example classic checkbox"
       ControlID       =   ""
       Enabled         =   True
       Height          =   34
@@ -413,7 +413,7 @@ Begin WebPage wpDEMO
       Top             =   398
       Value           =   False
       Visible         =   True
-      Width           =   100
+      Width           =   241
       _mPanelIndex    =   -1
    End
    Begin WebLabel lblValue1
@@ -844,19 +844,17 @@ Begin WebPage wpDEMO
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
-      PanelIndex      =   0
       Scope           =   0
       TabIndex        =   105
       TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Xojo default is not touched"
+      Text            =   "Xojo default is not touched, so you can use both in parallel in your projects!"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
       Top             =   366
       Underline       =   False
       Visible         =   True
-      Width           =   214
+      Width           =   617
       _mPanelIndex    =   -1
    End
 End
@@ -953,7 +951,8 @@ End
 #tag Events pmBorder1
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
-		  teccCheckbox1.CheckboxBorder = teccCheckbox.BorderDimensions( me.SelectedRowIndex)
+		  #Pragma unused item
+		  teccCheckbox1.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
 		  teccCheckbox1.UpdateControl
 		End Sub
 	#tag EndEvent
@@ -961,6 +960,7 @@ End
 #tag Events pmBorder2
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox2.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
 		  teccCheckbox2.UpdateControl
 		End Sub
@@ -969,6 +969,7 @@ End
 #tag Events pmBorder3
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox3.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
 		  teccCheckbox3.UpdateControl
 		End Sub
@@ -977,7 +978,8 @@ End
 #tag Events pmBorderStyle1
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
-		  teccCheckbox1.BorderStyle = teccCheckbox.BorderStyles( me.SelectedRowIndex)
+		  #Pragma unused item
+		  teccCheckbox1.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
 		  teccCheckbox1.UpdateControl
 		End Sub
 	#tag EndEvent
@@ -985,6 +987,7 @@ End
 #tag Events pmSymbol1
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox1.Symbol = teccCheckbox.Symbols( me.SelectedRowIndex)
 		  teccCheckbox1.UpdateControl
 		End Sub
@@ -993,6 +996,7 @@ End
 #tag Events pmSymbol2
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox2.Symbol = teccCheckbox.Symbols( Me.SelectedRowIndex)
 		  teccCheckbox2.UpdateControl
 		End Sub
@@ -1001,6 +1005,7 @@ End
 #tag Events pmSymbol3
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox3.Symbol = teccCheckbox.Symbols( Me.SelectedRowIndex)
 		  teccCheckbox3.UpdateControl
 		End Sub
@@ -1009,6 +1014,7 @@ End
 #tag Events pmBorderStyle2
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox2.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
 		  teccCheckbox2.UpdateControl
 		End Sub
@@ -1017,6 +1023,7 @@ End
 #tag Events pmBorderStyle3
 	#tag Event
 		Sub SelectionChanged(item as WebMenuItem)
+		  #Pragma unused item
 		  teccCheckbox3.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
 		  teccCheckbox3.UpdateControl
 		End Sub

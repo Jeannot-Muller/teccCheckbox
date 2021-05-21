@@ -279,7 +279,7 @@ Begin WebPage wpDEMO
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
-      Left            =   320
+      Left            =   298
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -295,7 +295,7 @@ Begin WebPage wpDEMO
       TextAlignment   =   0
       TextColor       =   &c00539200
       Tooltip         =   ""
-      Top             =   28
+      Top             =   30
       Underline       =   False
       Visible         =   True
       Width           =   194
@@ -857,6 +857,38 @@ Begin WebPage wpDEMO
       Width           =   617
       _mPanelIndex    =   -1
    End
+   Begin teccCheckbox teccCheckbox4
+      ActiveBackground=   &cEAEAEA00
+      ActiveBorder    =   &c0096FF00
+      Background      =   &cFEFFFF00
+      BorderColor     =   &c0096FF00
+      BorderStyle     =   7
+      CheckboxBorder  =   1
+      ControlID       =   ""
+      Enabled         =   False
+      Height          =   34
+      Index           =   -2147483648
+      Indicator       =   0
+      InitiallyOff    =   False
+      Left            =   715
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      MarkerColor     =   &c0096FF00
+      Scope           =   0
+      Symbol          =   ""
+      TabIndex        =   106
+      Tooltip         =   ""
+      Top             =   113
+      value           =   False
+      Visible         =   True
+      Width           =   34
+      _mPanelIndex    =   -1
+   End
 End
 #tag EndWebPage
 
@@ -871,10 +903,6 @@ End
 		  teccCheckbox1.BorderStyle = teccCheckbox.BorderStyles.solid
 		  teccCheckbox2.BorderStyle = teccCheckbox.BorderStyles.solid
 		  teccCheckbox3.BorderStyle = teccCheckbox.BorderStyles.solid
-		  
-		  // Change color via Code
-		  // teccToggle4.Design = &c00ff00
-		  
 		  
 		End Sub
 	#tag EndEvent
@@ -1026,6 +1054,13 @@ End
 		  #Pragma unused item
 		  teccCheckbox3.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
 		  teccCheckbox3.UpdateControl
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events teccCheckbox4
+	#tag Event , Description = 4669726573207768656E2074686520636F6E74726F6C20697320636C69636B65642E2052657475726E7320746865206368616E676564207374617475732E0A737461747573203D2074686520737461747573206F662074686520636F6E74726F6C2E0A6F626A6563746964203D20746865206964206F6620746865206372656174656420444F4D20656C656D656E742E
+		Sub teccCheckboxClick()
+		  lblValue2.Text = teccCheckbox2.value.ToString
 		End Sub
 	#tag EndEvent
 #tag EndEvents

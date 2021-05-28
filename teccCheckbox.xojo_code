@@ -335,40 +335,212 @@ Inherits WebSDKUIControl
 	#tag EndHook
 
 
-	#tag Property, Flags = &h0
-		ActiveBackground As color = &cFFFFFF
-	#tag EndProperty
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mActiveBackground
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mActiveBackground = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		ActiveBackground As color
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		ActiveBorder As Color = &c0096ff
-	#tag EndProperty
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mActiveBorder
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mActiveBorder = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		ActiveBorder As Color
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		Background As color = &cFFFFFF
-	#tag EndProperty
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mBackground
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mBackground = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		Background As color
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		BorderColor As Color = &c0096ff
-	#tag EndProperty
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mBorderColor
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mBorderColor = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		BorderColor As Color
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mBorderStyle
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mBorderStyle = value
+			  updateControl
+			End Set
+		#tag EndSetter
 		BorderStyle As BorderStyles
-	#tag EndProperty
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Note
+			updateControl
+		#tag EndNote
+		#tag Getter
+			Get
+			  Return mCheckboxBorder
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mCheckboxBorder = value
+			  updateControl
+			End Set
+		#tag EndSetter
 		CheckboxBorder As BorderDimensions
-	#tag EndProperty
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		InitiallyOff As boolean = false
-	#tag EndProperty
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mInitiallyOff
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mInitiallyOff = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		InitiallyOff As boolean
+	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
 		Private Shared JSFramework As WebFile
 	#tag EndProperty
 
-	#tag Property, Flags = &h0
-		MarkerColor As Color = &c0096ff
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  Return mmActiveBackground
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mmActiveBackground = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		Private mActiveBackground As color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  Return mmActiveBorder
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mmActiveBorder = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		Private mActiveBorder As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mMarkerColor
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mMarkerColor = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		MarkerColor As Color
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private mBackground As color = &cFFFFFF
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mBorderColor As Color = &c0096ff
+	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  Return mmBorderStyle
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mmBorderStyle = value
+			  updateControl
+			End Set
+		#tag EndSetter
+		Private mBorderStyle As BorderStyles
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private mCheckboxBorder As BorderDimensions
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mInitiallyOff As boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mmActiveBackground As color = &cFFFFFF
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mmActiveBorder As Color = &c0096ff
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mMarkerColor As Color = &c0096ff
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mmBorderStyle As BorderStyles
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mSymbol As Symbols
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -382,9 +554,20 @@ Inherits WebSDKUIControl
 		Private objectid As string
 	#tag EndProperty
 
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mSymbol
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mSymbol = value
+			  updateControl
+			End Set
+		#tag EndSetter
 		Symbol As Symbols
-	#tag EndProperty
+	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
 		Private Shared teccCheckboxCSS As WebFile
@@ -399,7 +582,7 @@ Inherits WebSDKUIControl
 		#tag Setter
 			Set
 			  mvalue = value
-			  
+			  me.UpdateControl
 			  Call teccCheckboxClick()
 			End Set
 		#tag EndSetter
@@ -580,25 +763,53 @@ Inherits WebSDKUIControl
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="InitiallyOff"
+			Name="ActiveBackground"
 			Visible=true
 			Group="teccCheckbox"
-			InitialValue="false"
-			Type="boolean"
+			InitialValue="&c000000"
+			Type="color"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Symbol"
+			Name="ActiveBorder"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue="&c000000"
+			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Background"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue="&c000000"
+			Type="color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BorderColor"
+			Visible=true
+			Group="teccCheckbox"
+			InitialValue="&c000000"
+			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BorderStyle"
 			Visible=true
 			Group="teccCheckbox"
 			InitialValue=""
-			Type="Symbols"
+			Type="BorderStyles"
 			EditorType="Enum"
 			#tag EnumValues
-				"0 - Arrow"
-				"1 - Cross"
-				"2 - Dash"
-				"3 - Plus"
+				"0 - dashed"
+				"1 - dotted"
+				"2 - double"
+				"3 - groove"
+				"4 - inset"
+				"5 - outset"
+				"6 - ridge"
+				"7 - solid"
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -615,62 +826,34 @@ Inherits WebSDKUIControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="BorderStyle"
+			Name="InitiallyOff"
 			Visible=true
 			Group="teccCheckbox"
-			InitialValue="7"
-			Type="BorderStyles"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - dashed"
-				"1 - dotted"
-				"2 - double"
-				"3 - groove"
-				"4 - inset"
-				"5 - outset"
-				"6 - ridge"
-				"7 - solid"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="BorderColor"
-			Visible=true
-			Group="teccCheckbox"
-			InitialValue="&c0096ff"
-			Type="Color"
+			InitialValue=""
+			Type="boolean"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MarkerColor"
 			Visible=true
 			Group="teccCheckbox"
-			InitialValue="&c0096ff"
+			InitialValue="&c000000"
 			Type="Color"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Background"
+			Name="Symbol"
 			Visible=true
 			Group="teccCheckbox"
-			InitialValue="&cFFFFFF"
-			Type="color"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ActiveBorder"
-			Visible=true
-			Group="teccCheckbox"
-			InitialValue="&c0096ff"
-			Type="Color"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ActiveBackground"
-			Visible=true
-			Group="teccCheckbox"
-			InitialValue="&cFFFFFF"
-			Type="color"
-			EditorType=""
+			InitialValue=""
+			Type="Symbols"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Arrow"
+				"1 - Cross"
+				"2 - Dash"
+				"3 - Plus"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="_mPanelIndex"

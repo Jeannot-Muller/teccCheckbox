@@ -209,34 +209,6 @@ Begin WebPage wpDEMO
       Width           =   292
       _mPanelIndex    =   -1
    End
-   Begin WebImageViewer mvxLogo
-      ControlID       =   ""
-      Enabled         =   True
-      Height          =   117
-      HorizontalAlignment=   2
-      Index           =   -2147483648
-      Indicator       =   0
-      Left            =   727
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockHorizontal  =   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      LockVertical    =   False
-      Picture         =   1137932287
-      Scope           =   2
-      SVGData         =   ""
-      TabIndex        =   64
-      Tooltip         =   ""
-      Top             =   603
-      URL             =   ""
-      VerticalAlignment=   2
-      Visible         =   True
-      Width           =   300
-      _mPanelIndex    =   -1
-      _ProtectImage   =   False
-   End
    Begin WebLabel lblStatus6
       Bold            =   False
       ControlID       =   ""
@@ -381,7 +353,7 @@ Begin WebPage wpDEMO
       LockTop         =   True
       LockVertical    =   False
       MarkerColor     =   &c008F5100
-      Scope           =   2
+      Scope           =   0
       Symbol          =   3
       TabIndex        =   87
       Tooltip         =   ""
@@ -889,6 +861,64 @@ Begin WebPage wpDEMO
       Width           =   34
       _mPanelIndex    =   -1
    End
+   Begin teccCheckbox teccCheckbox5
+      ActiveBackground=   &cFFFFFF00
+      ActiveBorder    =   &c0096FF00
+      Background      =   &cFFFFFF00
+      BorderColor     =   &c0096FF00
+      BorderStyle     =   7
+      CheckboxBorder  =   ""
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   34
+      Index           =   -2147483648
+      Indicator       =   ""
+      InitiallyOff    =   False
+      Left            =   835
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      MarkerColor     =   &c0096FF00
+      Scope           =   0
+      Symbol          =   ""
+      TabIndex        =   107
+      Tooltip         =   ""
+      Top             =   113
+      value           =   False
+      Visible         =   True
+      Width           =   100
+      _mPanelIndex    =   -1
+   End
+   Begin WebButton pbToggle
+      AllowAutoDisable=   False
+      Cancel          =   False
+      Caption         =   "Toggle Checkbox"
+      ControlID       =   ""
+      Default         =   False
+      Enabled         =   True
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   6
+      Left            =   835
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   0
+      TabIndex        =   108
+      Tooltip         =   ""
+      Top             =   221
+      Visible         =   True
+      Width           =   192
+      _mPanelIndex    =   -1
+   End
 End
 #tag EndWebPage
 
@@ -932,22 +962,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events mvxLogo
-	#tag Event
-		Sub Pressed(x as Integer, y as Integer)
-		  #Pragma unused x
-		  #Pragma unused y
-		  
-		  Session.GoToURL("https://blog.xojodocs.com", False)
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Opening()
-		  Me.Style.Cursor = WebStyle.Cursors.Pointer
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events pbBlog
 	#tag Event
 		Sub Pressed()
@@ -981,7 +995,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox1.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
-		  teccCheckbox1.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -990,7 +1004,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox2.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
-		  teccCheckbox2.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -999,7 +1013,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox3.CheckboxBorder = teccCheckbox.BorderDimensions( Me.SelectedRowIndex)
-		  teccCheckbox3.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1008,7 +1022,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox1.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
-		  teccCheckbox1.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1017,7 +1031,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox1.Symbol = teccCheckbox.Symbols( me.SelectedRowIndex)
-		  teccCheckbox1.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1026,7 +1040,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox2.Symbol = teccCheckbox.Symbols( Me.SelectedRowIndex)
-		  teccCheckbox2.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1035,7 +1049,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox3.Symbol = teccCheckbox.Symbols( Me.SelectedRowIndex)
-		  teccCheckbox3.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1044,7 +1058,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox2.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
-		  teccCheckbox2.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1053,7 +1067,7 @@ End
 		Sub SelectionChanged(item as WebMenuItem)
 		  #Pragma unused item
 		  teccCheckbox3.BorderStyle = teccCheckbox.BorderStyles( Me.SelectedRowIndex)
-		  teccCheckbox3.UpdateControl
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1061,6 +1075,13 @@ End
 	#tag Event , Description = 4669726573207768656E2074686520636F6E74726F6C20697320636C69636B65642E2052657475726E7320746865206368616E676564207374617475732E0A737461747573203D2074686520737461747573206F662074686520636F6E74726F6C2E0A6F626A6563746964203D20746865206964206F6620746865206372656174656420444F4D20656C656D656E742E
 		Sub teccCheckboxClick()
 		  lblValue2.Text = teccCheckbox2.value.ToString
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events pbToggle
+	#tag Event
+		Sub Pressed()
+		  teccCheckbox5.value = Not teccCheckbox5.value
 		End Sub
 	#tag EndEvent
 #tag EndEvents
